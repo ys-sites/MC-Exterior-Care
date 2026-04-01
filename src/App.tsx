@@ -168,23 +168,24 @@ const Card = ({ children, className = "", delay = 0 }: { children: React.ReactNo
 
 const VideoShowcase = ({ t }: { t: any }) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
+  const basePath = import.meta.env.BASE_URL || "/";
   const videos = [
     {
       id: 1,
       title: "Doing it properly",
-      videoUrl: "/media/vid1.mp4",
+      videoUrl: `${basePath}media/vid1.mp4`,
       igLink: "https://www.instagram.com/reel/DViwbMGETk7/",
     },
     {
       id: 2,
       title: "La peinture",
-      videoUrl: "/media/vid2.mp4",
+      videoUrl: `${basePath}media/vid2.mp4`,
       igLink: "https://www.instagram.com/reel/DVYn2kAET6p/",
     },
     {
       id: 3,
       title: "Fresh start",
-      videoUrl: "/media/vid3.mp4",
+      videoUrl: `${basePath}media/vid3.mp4`,
       igLink: "https://www.instagram.com/reel/DVONZCHFBZj/",
     }
   ];
@@ -217,12 +218,14 @@ const VideoShowcase = ({ t }: { t: any }) => {
         <div className="md:hidden relative">
           <div className="rounded-3xl overflow-hidden shadow-2xl bg-neutral-900 aspect-[9/16] relative group border border-white/10">
             <video 
-              src={videos[currentIndex].videoUrl} 
               className="w-full h-full object-cover"
               controls
               playsInline
               preload="metadata"
-            />
+            >
+              <source src={videos[currentIndex].videoUrl} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
               <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                 <span className="text-white text-xs font-medium truncate max-w-[100px]">{videos[currentIndex].title}</span>
@@ -255,12 +258,14 @@ const VideoShowcase = ({ t }: { t: any }) => {
               className="rounded-3xl overflow-hidden shadow-2xl bg-neutral-900 aspect-[9/16] relative group border border-white/10"
             >
               <video 
-                src={video.videoUrl} 
                 className="w-full h-full object-cover"
                 controls
                 playsInline
                 preload="metadata"
-              />
+              >
+                <source src={video.videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
               <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                   <span className="text-white text-xs font-medium truncate max-w-[100px]">{video.title}</span>
