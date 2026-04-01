@@ -547,7 +547,7 @@ function AppContent() {
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white font-medium text-xs sm:text-sm mb-6 backdrop-blur-md border border-white/20"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white font-medium text-xs sm:text-sm mb-6 backdrop-blur-md border border-white/20 -ml-4 sm:-ml-6"
             >
               <Star size={14} className="fill-white text-white" /> {t.hero.badge}
             </motion.div>
