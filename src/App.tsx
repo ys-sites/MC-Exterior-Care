@@ -339,8 +339,8 @@ const ServiceGallery = ({ t }: { t: any }) => {
   return (
     <Section id="portfolio" className="bg-neutral-50 py-24 overflow-hidden">
       <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Notre Portfolio</h2>
-        <p className="text-neutral-600 max-w-2xl mx-auto text-lg">Découvrez l'excellence de notre savoir-faire à travers nos réalisations.</p>
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">{t.portfolioSection.title}</h2>
+        <p className="text-neutral-600 max-w-2xl mx-auto text-lg">{t.portfolioSection.subtitle}</p>
       </div>
 
       <div className="flex flex-col md:flex-row items-stretch overflow-hidden w-full max-w-6xl mx-auto h-[600px] md:h-[500px] gap-4 px-4">
@@ -389,7 +389,7 @@ const ServiceGallery = ({ t }: { t: any }) => {
                     className="ml-4 text-white whitespace-nowrap"
                   >
                     <div className="font-bold text-lg md:text-2xl drop-shadow-md">{service.title}</div>
-                    <div className="text-xs md:text-base opacity-90 drop-shadow-md">{service.subtitle}</div>
+                    <div className="hidden md:block text-xs md:text-base opacity-90 drop-shadow-md">{service.subtitle}</div>
                   </motion.div>
                 )}
               </AnimatePresence>

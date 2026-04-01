@@ -9,6 +9,10 @@ export const translations = {
       faq: "FAQ",
       getQuote: "Get a Quote"
     },
+    portfolioSection: {
+      title: "Portfolio",
+      subtitle: "Discover our completed projects and exterior transformations."
+    },
     hero: {
       badge: "MC Exterior Care, experts in exterior care in Montreal",
       title: "Professional Exterior Cleaning & Services",
@@ -184,7 +188,12 @@ export const translations = {
       portfolio: "Portfolio",
       process: "Processus",
       reviews: "Avis",
+      faq: "FAQ",
       getQuote: "Obtenir un devis"
+    },
+    portfolioSection: {
+      title: "Notre Portfolio",
+      subtitle: "Découvrez l'excellence de notre savoir-faire à travers nos réalisations."
     },
     hero: {
       badge: "MC Exterior Care, experts en entretien extérieur à Montréal",
