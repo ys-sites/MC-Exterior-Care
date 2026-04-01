@@ -218,6 +218,7 @@ const VideoShowcase = ({ t }: { t: any }) => {
         <div className="md:hidden relative">
           <div className="rounded-3xl overflow-hidden shadow-2xl bg-neutral-900 aspect-[9/16] relative group border border-white/10">
             <video 
+              key={videos[currentIndex].id}
               className="w-full h-full object-cover"
               controls
               playsInline
@@ -233,17 +234,27 @@ const VideoShowcase = ({ t }: { t: any }) => {
             </div>
           </div>
           <button 
+            type="button"
             onClick={() => setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length)}
-            className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/20 p-2 rounded-full text-white"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 p-2 rounded-full text-white hover:bg-white/30"
           >
             <ChevronLeft />
           </button>
           <button 
+            type="button"
             onClick={() => setCurrentIndex((prev) => (prev + 1) % videos.length)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/20 p-2 rounded-full text-white"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/20 p-2 rounded-full text-white hover:bg-white/30"
           >
             <ChevronRight />
           </button>
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+            {videos.map((_, index) => (
+              <span
+                key={index}
+                className={`w-2 h-2 rounded-full ${index === currentIndex ? 'bg-white' : 'bg-white/40'}`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Desktop Grid */}
@@ -542,8 +553,8 @@ function AppContent() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
         </div>
         
-        <div className="relative z-10 w-full flex-1 flex flex-col justify-center pt-20 pb-40 px-4 sm:px-6">
-          <div className="max-w-4xl text-left">
+        <div className="relative z-10 w-full flex-1 flex flex-col items-start justify-center pt-20 pb-40 px-4 sm:px-6">
+          <div className="max-w-3xl text-left">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
