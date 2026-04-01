@@ -1,0 +1,477 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #0A3D62; /* Primary Blue */
+  --color-primary-light: #3C91E6; /* Light Blue */
+  --color-background: #FFFFFF; /* White */
+  --color-foreground: #1B1B1B; /* Dark text */
+}
+
+/* Card Scanner Section Styles */
+.card-scanner-section {
+  background: #000000;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: "Arial", sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.card-scanner-section .controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.card-scanner-section .control-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.card-scanner-section .control-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-scanner-section .speed-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 16px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  z-index: 100;
+}
+
+.card-scanner-section .container {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-scanner-section .card-stream {
+  position: absolute;
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.card-scanner-section .card-line {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  white-space: nowrap;
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+}
+
+.card-scanner-section .card-line:active {
+  cursor: grabbing;
+}
+
+.card-scanner-section .card-line.dragging {
+  cursor: grabbing;
+}
+
+.card-scanner-section .card-wrapper {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  flex-shrink: 0;
+}
+
+.card-scanner-section .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-scanner-section .card-normal {
+  background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  color: white;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  clip-path: inset(0 0 0 var(--clip-right, 0%));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-scanner-section .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  filter: brightness(0.6) contrast(1.2);
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-scanner-section .card-image:hover {
+  filter: brightness(1.2) contrast(1.2);
+}
+
+.card-scanner-section .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, transparent 40%, rgba(0,0,0,0.6) 100%);
+}
+
+.card-scanner-section .card-logo {
+  font-weight: 900;
+  font-size: 32px;
+  color: white;
+  opacity: 0.9;
+  font-family: var(--font-sans);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.card-scanner-section .card-name {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  font-size: 14px;
+  color: white;
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.card-scanner-section .card-chip {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 35px;
+  background: linear-gradient(135deg, #d4af37, #f9e27d);
+  border-radius: 6px;
+  opacity: 0.8;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+.card-scanner-section .card-number {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: white;
+  opacity: 0.95;
+  letter-spacing: 0.2em;
+  margin: auto 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px 20px;
+  border-radius: 6px;
+  width: fit-content;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.card-scanner-section .card-contactless {
+  position: absolute;
+  top: 50%;
+  left: 25px;
+  transform: translateY(-50%);
+  color: white;
+  opacity: 0.7;
+}
+
+.card-scanner-section .card-brand {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  display: flex;
+}
+
+.card-scanner-section .card-brand .circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+.card-scanner-section .card-brand .circle-1 {
+  background: #eb001b;
+  margin-right: -8px;
+}
+
+.card-scanner-section .card-brand .circle-2 {
+  background: #ff5f00;
+}
+
+.card-scanner-section .card-ascii {
+  background: transparent;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+  clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
+}
+
+.card-scanner-section .ascii-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(220, 210, 255, 0.6);
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  line-height: 13px;
+  overflow: hidden;
+  white-space: pre;
+  animation: glitch 0.1s infinite linear alternate-reverse;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.4) 80%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.4) 80%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+@keyframes glitch {
+  0% { opacity: 1; }
+  15% { opacity: 0.9; }
+  16% { opacity: 1; }
+  49% { opacity: 0.8; }
+  50% { opacity: 1; }
+  99% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+.card-scanner-section .scanner {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 300px;
+  border-radius: 30px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 255, 255, 0.8),
+    rgba(0, 255, 255, 1),
+    rgba(0, 255, 255, 0.8),
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.4);
+  animation: scanPulse 2s ease-in-out infinite alternate;
+  z-index: 10;
+}
+
+@keyframes scanPulse {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scaleY(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scaleY(1.1);
+  }
+}
+
+.card-scanner-section .scan-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 255, 0.4),
+    transparent
+  );
+  animation: scanEffect 0.6s ease-out;
+  pointer-events: none;
+  z-index: 5;
+}
+
+@keyframes scanEffect {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.card-scanner-section #particleCanvas {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 250px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card-scanner-section #scannerCanvas {
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 300px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.card-scanner-section .headline-container {
+  text-align: center;
+  margin-bottom: 40px;
+  z-index: 100;
+}
+
+.card-scanner-section .headline {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+@media (max-width: 640px) {
+  .card-scanner-section .headline {
+    font-size: 2.5rem;
+  }
+  .card-scanner-section .description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+}
+
+.card-scanner-section .headline span.blue {
+  color: #3C91E6;
+}
+
+.card-scanner-section .headline span.web-box {
+  background: linear-gradient(135deg, #0A3D62, #3C91E6);
+  color: white;
+  padding: 4px 16px;
+  border-radius: 12px;
+  margin: 0 10px;
+  display: inline-block;
+  transform: rotate(-2deg);
+  box-shadow: 0 4px 15px rgba(10, 61, 98, 0.3);
+}
+
+.card-scanner-section .description {
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  margin: 20px auto 0;
+  line-height: 1.6;
+  font-size: 1.125rem;
+}
+
+.card-scanner-section .cta-wrapper {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-scanner-section .quote-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  color: #1B1B1B;
+  padding: 8px 24px 8px 8px;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-scanner-section .quote-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.card-scanner-section .icon-box {
+  background: #f5f5f5;
+  padding: 8px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1B1B1B;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
