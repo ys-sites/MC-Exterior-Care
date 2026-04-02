@@ -180,12 +180,6 @@ const VideoShowcase = ({ t }: { t: any }) => {
       title: "La peinture",
       videoUrl: `${basePath}media/vid2.mp4`,
       igLink: "https://www.instagram.com/reel/DVYn2kAET6p/",
-    },
-    {
-      id: 3,
-      title: "Fresh start",
-      videoUrl: `${basePath}media/vid3.mp4`,
-      igLink: "https://www.instagram.com/reel/DVONZCHFBZj/",
     }
   ];
 
