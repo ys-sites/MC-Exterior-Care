@@ -181,7 +181,7 @@ const VideoShowcase = ({ t }: { t: any }) => {
       id: 2,
       title: "La peinture",
       videoUrl: `${basePath}media/vid2.mp4`,
-      thumbnailUrl: `${basePath}media/vid2-thumb.jpg`,
+      thumbnailUrl: `${basePath}media/vid2-thumb.jpg?v=2`,
       igLink: "https://www.instagram.com/reel/DVYn2kAET6p/",
     },
     {
