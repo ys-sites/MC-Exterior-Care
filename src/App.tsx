@@ -32,7 +32,6 @@ const Counter = ({ value, duration = 2, suffix = "" }: { value: number; duration
 
 import { db, auth } from './firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import CardScannerSection from './components/CardScannerSection';
 
 // Error Boundary Component
 interface ErrorBoundaryProps {
@@ -841,8 +840,6 @@ function AppContent() {
           </motion.div>
         </div>
       </Section>
-
-      <CardScannerSection />
 
       {/* Frictionless CTA Form */}
       <Section id="contact" className="bg-neutral-50 border-y border-neutral-100 relative overflow-hidden group/main">
