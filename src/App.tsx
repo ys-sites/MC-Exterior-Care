@@ -1013,8 +1013,8 @@ function AppContent() {
             <div>
               <h4 className="text-white font-bold mb-6">{t.footer.contact}</h4>
               <ul className="space-y-3">
-                <li className="flex items-center gap-3"><Phone size={16} className="text-primary" /> (514) 247-2086</li>
-                <li className="flex items-center gap-3"><Mail size={16} className="text-primary" /> {t.footer.email}</li>
+                <li className="flex items-center gap-3"><Phone size={16} className="text-primary" /> 514 247 2086</li>
+                <li className="flex items-center gap-3"><Mail size={16} className="text-primary" /> Mcextcare@gmail.com</li>
                 <li className="flex items-center gap-3"><MapPin size={16} className="text-primary" /> {t.footer.location}</li>
               </ul>
             </div>

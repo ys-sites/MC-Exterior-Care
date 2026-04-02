@@ -21,7 +21,7 @@ export const translations = {
       consultation: "Satisfaction Guarantee • Fast response • 5-Star Reviews",
       stats: {
         callText: "You can also give us a call at the number below:",
-        phone: "(514) 247-2086",
+        phone: "514 247 2086",
         reviews: "36",
         reviewsText: "Five-Star Reviews",
         clients: "244",
@@ -131,7 +131,7 @@ export const translations = {
       location: "Montreal, Quebec",
       sendMessageTitle: "Send Us A Message",
       subtitle: "Ready to transform your home? Fill out the form below and we'll get back to you within 24 hours.",
-      phone: "5142472086",
+      phone: "514 247 2086",
       email: "Mcextcare@gmail.com",
       form: {
         name: "Full Name *",
@@ -203,7 +203,7 @@ export const translations = {
       consultation: "Garantie de satisfaction • Réponse rapide • Avis 5 étoiles",
       stats: {
         callText: "Vous pouvez également nous appeler au numéro ci-dessous :",
-        phone: "(514) 247-2086",
+        phone: "514 247 2086",
         reviews: "36",
         reviewsText: "Avis Cinq Étoiles",
         clients: "244",
@@ -214,7 +214,7 @@ export const translations = {
     },
     services: {
       title: "NOS SERVICES",
-      subtitle: "Explorez Nos Services de Rénovation :",
+      subtitle: "Explorez Nos Services d'Entretien :",
       exterior: {
         title: "Nettoyage de Gouttières",
         desc: "Protégez votre maison des dégâts d'eau avec un nettoyage et un entretien professionnels et approfondis des gouttières.",
@@ -313,7 +313,7 @@ export const translations = {
       location: "Montréal, Québec",
       sendMessageTitle: "Envoyez-nous un message",
       subtitle: "Prêt à transformer votre maison ? Remplissez le formulaire ci-dessous et nous vous répondrons dans les 24 heures.",
-      phone: "5142472086",
+      phone: "514 247 2086",
       email: "Mcextcare@gmail.com",
       form: {
         name: "Nom complet *",
