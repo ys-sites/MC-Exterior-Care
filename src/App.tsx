@@ -173,18 +173,21 @@ const VideoShowcase = ({ t }: { t: any }) => {
       id: 1,
       title: "Doing it properly",
       videoUrl: `${basePath}media/vid1.mp4`,
+      thumbnailUrl: `${basePath}media/vid1-thumb.jpg`,
       igLink: "https://www.instagram.com/reel/DViwbMGETk7/",
     },
     {
       id: 2,
       title: "La peinture",
       videoUrl: `${basePath}media/vid2.mp4`,
+      thumbnailUrl: `${basePath}media/vid2-thumb.jpg`,
       igLink: "https://www.instagram.com/reel/DVYn2kAET6p/",
     },
     {
       id: 3,
       title: "Fresh start",
       videoUrl: `${basePath}media/vid3.mp4`,
+      thumbnailUrl: `${basePath}media/vid3-thumb.jpg`,
       igLink: "https://www.instagram.com/reel/DVONZCHFBZj/",
     }
   ];
@@ -222,6 +225,7 @@ const VideoShowcase = ({ t }: { t: any }) => {
               controls
               playsInline
               preload="metadata"
+              poster={videos[currentIndex].thumbnailUrl}
             >
               <source src={videos[currentIndex].videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
