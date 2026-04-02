@@ -190,9 +190,9 @@ const VideoShowcase = ({ t }: { t: any }) => {
   ];
 
   return (
-    <Section className="bg-neutral-950 py-20 overflow-hidden">
+    <Section className="bg-neutral-950 py-10 md:py-20 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -215,7 +215,7 @@ const VideoShowcase = ({ t }: { t: any }) => {
 
         {/* Mobile Carousel */}
         <div className="md:hidden relative">
-          <div className="rounded-3xl overflow-hidden shadow-2xl bg-neutral-900 aspect-[9/16] relative group border border-white/10">
+          <div className="rounded-3xl overflow-hidden shadow-2xl bg-neutral-900 aspect-[9/16] max-h-[65vh] relative group border border-white/10">
             <video 
               key={videos[currentIndex].id}
               className="w-full h-full object-cover"
@@ -833,7 +833,7 @@ function AppContent() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative h-[400px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl group"
           >
-            <img src="/media/house.png" alt="Exterior Services" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src="/media/house.png" alt="Exterior Services" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent" />
           </motion.div>
         </div>
@@ -849,8 +849,8 @@ function AppContent() {
               const img = `/media/${imgIndex}.jpeg`;
               return (
                 <div key={i} className="relative group/item">
-                  <img src={img} alt="" className="w-full h-full object-cover opacity-5 group-hover/main:blur-sm group-hover/main:opacity-10 transition-all duration-500" />
-                  <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/item:opacity-100 group-hover/item:blur-0 transition-all duration-300" />
+                  <img src={img} alt="" loading="lazy" className="w-full h-full object-cover opacity-5 group-hover/main:blur-sm group-hover/main:opacity-10 transition-all duration-500" />
+                  <img src={img} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/item:opacity-100 group-hover/item:blur-0 transition-all duration-300" />
                 </div>
               );
             })}
@@ -1058,5 +1058,8 @@ function AppContent() {
         <span>{t.bookFreeCall}</span>
       </motion.a>
     </main>
+  );
+}
+   </main>
   );
 }
