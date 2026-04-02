@@ -464,9 +464,7 @@ function AppContent() {
         <nav className="bg-white border border-neutral-200/50 rounded-full px-3 py-2 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
           <div className="flex items-center gap-6">
             <a href="#" className="pl-3 flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
-                <ShieldCheck size={20} />
-              </div>
+              <img src="/media/mc.png" alt="MC Exterior Care" className="w-10 h-10 object-contain" />
               <span className="text-lg font-bold tracking-tight text-neutral-900 whitespace-nowrap">MC Exterior Care</span>
             </a>
             
@@ -990,6 +988,7 @@ function AppContent() {
         >
           <div className="flex flex-col items-start gap-4 shrink-0 md:w-1/3">
             <div className="text-white flex items-center gap-4">
+              <img src="/media/mc.png" alt="MC Exterior Care" className="w-14 h-14 object-contain" />
               <div className="flex flex-col gap-2">
                 <span className="text-2xl font-bold tracking-tight">MC Exterior Care</span>
               </div>
