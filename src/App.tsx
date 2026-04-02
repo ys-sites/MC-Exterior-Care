@@ -231,10 +231,7 @@ const VideoShowcase = ({ t }: { t: any }) => {
               <source src={videos[currentIndex].videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
-              <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 pointer-events-none">
-                <span className="text-white text-xs font-medium truncate max-w-[100px]">{videos[currentIndex].title}</span>
-              </div>
+            <div className="absolute top-4 right-4 flex justify-end items-center z-10">
               <a
                 href={videos[currentIndex].igLink}
                 target="_blank"
@@ -295,10 +292,7 @@ const VideoShowcase = ({ t }: { t: any }) => {
                 <source src={video.videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
-                <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 pointer-events-none">
-                  <span className="text-white text-xs font-medium truncate max-w-[100px]">{video.title}</span>
-                </div>
+              <div className="absolute top-4 right-4 flex justify-end items-center z-10">
                 <a 
                   href={video.igLink}
                   target="_blank"
