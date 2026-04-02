@@ -1060,6 +1060,3 @@ function AppContent() {
     </main>
   );
 }
-   </main>
-  );
-}
