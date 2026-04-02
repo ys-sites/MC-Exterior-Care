@@ -276,6 +276,7 @@ const VideoShowcase = ({ t }: { t: any }) => {
                 controls
                 playsInline
                 preload="metadata"
+                poster={video.thumbnailUrl}
               >
                 <source src={video.videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
