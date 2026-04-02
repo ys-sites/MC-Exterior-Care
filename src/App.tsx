@@ -470,7 +470,7 @@ function AppContent() {
         <nav className="bg-white border border-neutral-200/50 rounded-full px-3 py-2 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
           <div className="flex items-center gap-6">
             <a href="#" className="pl-3 flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src="/media/MC.png" alt="MC Exterior Care" className="w-10 h-10 object-contain" />
+              <img src="/media/MC.png" alt="MC Exterior Care" className="w-14 h-14 object-contain" />
               <span className="text-lg font-bold tracking-tight text-neutral-900 whitespace-nowrap">MC Exterior Care</span>
             </a>
             
