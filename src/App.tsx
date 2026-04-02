@@ -159,6 +159,7 @@ const Card = ({ children, className = "", delay = 0 }: { children: React.ReactNo
     viewport={{ once: true, margin: "-50px" }}
     transition={{ duration: 0.5, delay }}
     whileHover={{ y: -10, boxShadow: "0px 15px 30px rgba(0,0,0,0.08)" }}
+    whileTap={{ y: -10, boxShadow: "0px 15px 30px rgba(0,0,0,0.08)" }}
     className={`p-8 bg-white border border-neutral-200 shadow-sm rounded-2xl transition-all ${className}`}
   >
     {children}
@@ -230,7 +231,7 @@ const VideoShowcase = ({ t }: { t: any }) => {
               <source src={videos[currentIndex].videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+            <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity">
               <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                 <span className="text-white text-xs font-medium truncate max-w-[100px]">{videos[currentIndex].title}</span>
               </div>
@@ -281,7 +282,7 @@ const VideoShowcase = ({ t }: { t: any }) => {
                 <source src={video.videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity">
                 <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
                   <span className="text-white text-xs font-medium truncate max-w-[100px]">{video.title}</span>
                 </div>
@@ -590,7 +591,7 @@ function AppContent() {
               className="flex flex-col items-start w-full mt-4"
             >
               <a href="#contact" className="bg-primary text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-red-600 transition-all flex items-center justify-center gap-3 shadow-xl shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-1 group">
-                {t.hero.cta} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                {t.hero.cta} <ArrowRight size={20} className="group-hover:translate-x-1 group-active:translate-x-1 transition-transform" />
               </a>
 
               <motion.div
@@ -660,11 +661,12 @@ function AppContent() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover={{ y: -10, scale: 1.02 }}
+              whileTap={{ y: -5, scale: 1.02 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.1 * idx }}
               className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-neutral-100 hover:border-primary/30 transition-all hover:shadow-xl group relative overflow-hidden flex flex-col h-full cursor-pointer"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity rounded-3xl" />
               <div className="relative z-10 flex-1">
                 {service.icon}
                 <h3 className="text-xl sm:text-2xl font-bold mb-3">{(t.services[service.key as keyof typeof t.services] as any).title}</h3>
@@ -689,6 +691,7 @@ function AppContent() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 1.02 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="bg-primary text-white rounded-3xl p-8 sm:p-10 shadow-lg relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 cursor-pointer group"
@@ -834,11 +837,12 @@ function AppContent() {
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
+            whileTap={{ scale: 1.02 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="relative h-[400px] sm:h-[500px] rounded-3xl overflow-hidden shadow-2xl group"
           >
-            <img src="/media/house.png" alt="Exterior Services" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+            <img src="/media/house.png" alt="Exterior Services" loading="lazy" className="w-full h-full object-cover group-hover:scale-110 group-active:scale-110 transition-transform duration-700" />
             <div className="absolute inset-0 bg-gradient-to-tr from-black/40 to-transparent" />
           </motion.div>
         </div>
@@ -1045,7 +1049,7 @@ function AppContent() {
         className="md:hidden fixed bottom-4 right-4 z-50 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-red-600 transition-colors group"
         aria-label="Call MC Exterior Care"
       >
-        <Phone size={24} className="group-hover:animate-bounce" />
+        <Phone size={24} className="group-hover:animate-bounce group-active:animate-bounce" />
       </motion.a>
 
       {/* Book Free Call Button (Desktop/Tablet) */}

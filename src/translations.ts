@@ -120,7 +120,7 @@ export const translations = {
       title: "OUR TESTIMONIAL",
       subtitle: "Dont Just Take our word, Listen the people words",
       items: [
-        { name: "Marie L.", role: "Homeowner", text: "\"MCr Care transformed our property. Professional, reliable, and the results speak for themselves.\"" },
+        { name: "Marie L.", role: "Homeowner", text: "\"MC Exterior Service transformed our property. Professional, reliable, and the results speak for themselves.\"" },
         { name: "David T.", role: "Residential Client", text: "\"Best gutter service in the West Island. They go above and beyond every single time.\"" },
         { name: "David Thomson", role: "Homeowner", text: "Absolutely phenomenal work! Theteam was professional, punctual, andthe quality exceeded ourexpectations. Our home looks brand new" }
       ]
@@ -302,7 +302,7 @@ export const translations = {
       title: "NOS TÉMOIGNAGES",
       subtitle: "Ne vous contentez pas de nous croire sur parole, écoutez ce que disent les gens",
       items: [
-        { name: "Marie L.", role: "Propriétaire", text: "\"MCr Care a transformé notre propriété. Professionnel, fiable, et les résultats parlent d'eux-mêmes.\"" },
+        { name: "Marie L.", role: "Propriétaire", text: "\"MC Exterior Service a transformé notre propriété. Professionnel, fiable, et les résultats parlent d'eux-mêmes.\"" },
         { name: "David T.", role: "Client Résidentiel", text: "\"Le meilleur service de gouttières dans l'Ouest-de-l'Île. Ils se surpassent à chaque fois.\"" },
         { name: "David Thomson", role: "Propriétaire", text: "Travail absolument phénoménal ! L'équipe était professionnelle, ponctuelle et la qualité a dépassé nos attentes. Notre maison a l'air toute neuve" }
       ]
