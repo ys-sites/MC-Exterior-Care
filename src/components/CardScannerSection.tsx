@@ -371,7 +371,7 @@ const CardScannerSection: React.FC = () => {
         <h2 className="headline">
           Stop Burning Cash on <br />
           <span className="blue">Bad</span> 
-          <span className="web-box">Contractors</span>
+          <span className="web-box">Maintenance Providers</span>
         </h2>
         <p className="description">
           We've seen it all: missed appointments, poor quality work, and hidden costs. 

@@ -16,7 +16,7 @@ export const translations = {
     hero: {
       badge: "MC Exterior Care, experts in exterior care in Montreal",
       title: "Professional Exterior Cleaning & Services",
-      subtitle: "Serving homeowners across Montreal West Island and surrounding areas with premium exterior care you can trust. Upgrade your home with skilled renovation professionals you can trust. Whether it's a small improvement or a full home transformation, our team delivers quality workmanship and beautiful results.",
+      subtitle: "Serving homeowners across Montreal West Island and surrounding areas with premium exterior care you can trust. Upgrade your home with skilled maintenance professionals you can trust. Whether it's a small improvement or a full home transformation, our team delivers quality workmanship and beautiful results.",
       cta: "Get A Free Quote Now",
       consultation: "Satisfaction Guarantee • Fast response • 5-Star Reviews",
       stats: {
@@ -32,7 +32,7 @@ export const translations = {
     },
     services: {
       title: "OUR SERVICES",
-      subtitle: "Explore Our Renovation Services:",
+      subtitle: "Explore Our Maintenance Services:",
       exterior: {
         title: "Gutter Cleaning",
         desc: "Protect your home from water damage with thorough, professional gutter cleaning and maintenance.",
@@ -97,7 +97,7 @@ export const translations = {
       desc: "Keeping your home protected shouldn't be stressful. Our experienced team provides dependable exterior services with a focus on long-term care, quality workmanship, and customer satisfaction.",
       cta: "Get A Quote Now",
       partnerTitle: "About Us",
-      partnerSubtitle: "Your Reliable Partner for Home Renovations",
+      partnerSubtitle: "Your Reliable Partner for Home Maintenance",
       partnerCards: [
         { title: "Transparent Pricing", desc: "Clear and honest pricing with no surprises. Submit a request and receive a detailed estimate within 24 hours." },
         { title: "Quality Ensured", desc: "We carefully inspect every project to ensure it meets our high standards before completion." },
