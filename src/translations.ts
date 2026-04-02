@@ -148,7 +148,7 @@ export const translations = {
         error: "Something went wrong. Please try again or call us directly.",
         success: {
           title: "Message Sent!",
-          desc: "Thank you for reaching out. We'll review your project and get back to you within 24 hours.",
+          desc: "Thank you for reaching out. We'll review your project and contact you shortly.",
           button: "Send another message"
         }
       },

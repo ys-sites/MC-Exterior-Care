@@ -304,12 +304,10 @@ const VideoShowcase = ({ t }: { t: any }) => {
 };
 
 const ServiceGallery = ({ t }: { t: any }) => {
-  const [activeId, setActiveId] = React.useState(1);
-
   const services = [
     {
       id: 1,
-      title: t.services.interior.title, // Pressure Washing in translations
+      title: t.services.interior.title,
       subtitle: t.services.interior.desc,
       image: "/media/1.jpeg",
       icon: <Sparkles size={20} />,
@@ -317,7 +315,7 @@ const ServiceGallery = ({ t }: { t: any }) => {
     },
     {
       id: 2,
-      title: t.services.dye.title, // Pavement Restoration
+      title: t.services.dye.title,
       subtitle: t.services.dye.desc,
       image: "/media/2.jpeg",
       icon: <ShieldCheck size={20} />,
@@ -325,7 +323,7 @@ const ServiceGallery = ({ t }: { t: any }) => {
     },
     {
       id: 3,
-      title: t.services.dye.title, // Pavement Restoration
+      title: t.services.dye.title,
       subtitle: t.services.dye.desc,
       image: "/media/3.jpeg",
       icon: <Star size={20} />,
@@ -333,7 +331,7 @@ const ServiceGallery = ({ t }: { t: any }) => {
     },
     {
       id: 4,
-      title: t.services.exterior.title, // Gutter Cleaning
+      title: t.services.exterior.title,
       subtitle: t.services.exterior.desc,
       image: "/media/4.jpeg",
       icon: <Clock size={20} />,
@@ -342,62 +340,40 @@ const ServiceGallery = ({ t }: { t: any }) => {
   ];
 
   return (
-    <Section id="portfolio" className="bg-neutral-50 py-24 overflow-hidden">
+    <Section id="portfolio" className="bg-neutral-50 py-24">
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">{t.portfolioSection.title}</h2>
         <p className="text-neutral-600 max-w-2xl mx-auto text-lg">{t.portfolioSection.subtitle}</p>
       </div>
 
-      <div className="flex flex-col md:flex-row items-stretch overflow-hidden w-full max-w-6xl mx-auto h-[600px] md:h-[500px] gap-4 px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full max-w-6xl mx-auto px-4">
         {services.map((service) => (
           <motion.div
             key={service.id}
-            layout
-            onMouseEnter={() => {
-              if (window.innerWidth >= 768) setActiveId(service.id);
-            }}
-            onClick={() => setActiveId(service.id)}
-            className={`relative overflow-hidden cursor-pointer transition-all duration-500 ease-[cubic-bezier(0.05,0.61,0.41,0.95)] ${
-              activeId === service.id ? 'flex-[10] rounded-[40px]' : 'flex-1 rounded-[30px]'
-            }`}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+            className="relative overflow-hidden rounded-[32px] aspect-[4/3] cursor-pointer"
             style={{
               backgroundImage: `url(${service.image})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}
           >
-            {/* Shadow Overlay */}
-            <div className={`absolute inset-0 transition-all duration-500 ${
-              activeId === service.id 
-                ? 'shadow-[inset_0_-120px_120px_-120px_black,inset_0_-120px_120px_-100px_black]' 
-                : 'shadow-[inset_0_-120px_0px_-120px_black,inset_0_-120px_0px_-100px_black]'
-            }`} />
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
             {/* Label */}
-            <div className={`absolute flex items-center transition-all duration-500 ${
-              activeId === service.id ? 'bottom-8 left-8' : 'bottom-4 left-1/2 -translate-x-1/2'
-            }`}>
-              <div 
-                className="flex items-center justify-center min-w-[48px] h-[48px] rounded-full bg-white shadow-lg"
+            <div className="absolute bottom-6 left-6 flex items-center">
+              <div
+                className="flex items-center justify-center min-w-[44px] h-[44px] rounded-full bg-white shadow-lg"
                 style={{ color: service.color }}
               >
                 {service.icon}
               </div>
-              
-              <AnimatePresence mode="wait">
-                {activeId === service.id && (
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
-                    className="ml-4 text-white whitespace-nowrap"
-                  >
-                    <div className="font-bold text-lg md:text-2xl drop-shadow-md">{service.title}</div>
-                    <div className="hidden md:block text-xs md:text-base opacity-90 drop-shadow-md">{service.subtitle}</div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              <div className="ml-3 text-white">
+                <div className="font-bold text-lg drop-shadow-md">{service.title}</div>
+                <div className="text-sm opacity-90 drop-shadow-md">{service.subtitle}</div>
+              </div>
             </div>
           </motion.div>
         ))}
