@@ -175,21 +175,21 @@ const VideoShowcase = ({ t }: { t: any }) => {
       title: "Doing it properly",
       videoUrl: `${basePath}media/vid1.mp4`,
       thumbnailUrl: `${basePath}media/vid1-thumb.jpg`,
-      igLink: "https://www.instagram.com/reel/DViwbMGETk7/",
+      igLink: "https://www.instagram.com/mcexteriorcare?igsh=Ymd0ZDF6MTdodWo0",
     },
     {
       id: 2,
       title: "La peinture",
       videoUrl: `${basePath}media/vid2.mp4`,
       thumbnailUrl: `${basePath}media/vid2-thumb.jpg?v=2`,
-      igLink: "https://www.instagram.com/reel/DVYn2kAET6p/",
+      igLink: "https://www.instagram.com/mcexteriorcare?igsh=Ymd0ZDF6MTdodWo0",
     },
     {
       id: 3,
       title: "Fresh start",
       videoUrl: `${basePath}media/vid3.mp4`,
       thumbnailUrl: `${basePath}media/vid3-thumb.jpg`,
-      igLink: "https://www.instagram.com/reel/DVONZCHFBZj/",
+      igLink: "https://www.instagram.com/mcexteriorcare?igsh=Ymd0ZDF6MTdodWo0",
     }
   ];
 
@@ -231,10 +231,23 @@ const VideoShowcase = ({ t }: { t: any }) => {
               <source src={videos[currentIndex].videoUrl} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-            <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity">
-              <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+            <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
+              <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 pointer-events-none">
                 <span className="text-white text-xs font-medium truncate max-w-[100px]">{videos[currentIndex].title}</span>
               </div>
+              <a
+                href={videos[currentIndex].igLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 bg-black/60 hover:bg-black/80 backdrop-blur-md text-white text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-full border border-white/20 transition-all"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <circle cx="12" cy="12" r="4"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+                {t.transformation.viewOnIg}
+              </a>
             </div>
           </div>
           <button 
@@ -282,16 +295,21 @@ const VideoShowcase = ({ t }: { t: any }) => {
                 <source src={video.videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
-              <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10 pointer-events-none opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity">
-                <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10">
+              <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
+                <div className="flex items-center gap-2 bg-black/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 pointer-events-none">
                   <span className="text-white text-xs font-medium truncate max-w-[100px]">{video.title}</span>
                 </div>
                 <a 
                   href={video.igLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="pointer-events-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-full border border-white/20 transition-all"
+                  className="flex items-center gap-1.5 bg-black/60 hover:bg-black/80 backdrop-blur-md text-white text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-full border border-white/20 transition-all"
                 >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                  </svg>
                   {t.transformation.viewOnIg}
                 </a>
               </div>
@@ -982,6 +1000,19 @@ function AppContent() {
               <img src="/media/MC.png" alt="MC Exterior Care" className="w-14 h-14 object-contain" />
               <div className="flex flex-col gap-2">
                 <span className="text-2xl font-bold tracking-tight">MC Exterior Care</span>
+                <a
+                  href="https://www.instagram.com/mcexteriorcare?igsh=Ymd0ZDF6MTdodWo0"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-neutral-400 hover:text-white transition-colors text-sm"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                  </svg>
+                  @mcexteriorcare
+                </a>
               </div>
             </div>
           </div>
