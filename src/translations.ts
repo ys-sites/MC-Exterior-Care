@@ -120,10 +120,9 @@ export const translations = {
       title: "OUR TESTIMONIAL",
       subtitle: "Dont Just Take our word, Listen the people words",
       items: [
-        { name: "Marie L.", role: "Homeowner", text: "\"MC Exterior Service transformed our property. Professional, reliable, and the results speak for themselves.\"" },
-        { name: "David T.", role: "Residential Client", text: "\"Best gutter service in the West Island. They go above and beyond every single time.\"" },
-        { name: "David Thomson", role: "Homeowner", text: "Absolutely phenomenal work! Theteam was professional, punctual, andthe quality exceeded ourexpectations. Our home looks brand new" },
-        { name: "Richard D.", role: "Homeowner", text: "Had my driveway restored by MC Exterior Care and wow, what a difference. Honestly didn't expect it to turn out this good — thing looks brand new. The guys were easy to deal with, showed up on time and got it done fast. No complaints at all. Would definitely use them again and would recommend to anyone." }
+        { name: "Lafrath Madhani", role: "Homeowner", text: "They did my deck, 10/10 recommend! Very reliable and hard working young men!" },
+        { name: "Richard D.", role: "Homeowner", text: "Had my driveway restored by MC Exterior Care and wow, what a difference. Honestly didn't expect it to turn out this good — thing looks brand new. The guys were easy to deal with, showed up on time and got it done fast. No complaints at all. Would definitely use them again and would recommend to anyone." },
+        { name: "David Thomson", role: "Homeowner", text: "Absolutely phenomenal work! Theteam was professional, punctual, andthe quality exceeded ourexpectations. Our home looks brand new" }
       ]
     },
     contact: {
@@ -303,10 +302,9 @@ export const translations = {
       title: "NOS TÉMOIGNAGES",
       subtitle: "Ne vous contentez pas de nous croire sur parole, écoutez ce que disent les gens",
       items: [
-        { name: "Marie L.", role: "Propriétaire", text: "\"MC Exterior Service a transformé notre propriété. Professionnel, fiable, et les résultats parlent d'eux-mêmes.\"" },
-        { name: "David T.", role: "Client Résidentiel", text: "\"Le meilleur service de gouttières dans l'Ouest-de-l'Île. Ils se surpassent à chaque fois.\"" },
-        { name: "David Thomson", role: "Propriétaire", text: "Travail absolument phénoménal ! L'équipe était professionnelle, ponctuelle et la qualité a dépassé nos attentes. Notre maison a l'air toute neuve" },
-        { name: "Richard D.", role: "Propriétaire", text: "J'ai fait restaurer mon entrée par MC Exterior Care et wow, quelle différence. Je ne m'attendais pas à ce que ça soit aussi beau — ça a l'air tout neuf. Les gars étaient faciles à gérer, sont arrivés à l'heure et ont terminé rapidement. Aucune plainte. Je les réutiliserais sans hésiter et les recommande à tous." }
+        { name: "Lafrath Madhani", role: "Propriétaire", text: "Ils ont fait ma terrasse, 10/10 je recommande ! Très fiables et travailleurs." },
+        { name: "Richard D.", role: "Propriétaire", text: "J'ai fait restaurer mon entrée par MC Exterior Care et wow, quelle différence. Je ne m'attendais pas à ce que ça soit aussi beau — ça a l'air tout neuf. Les gars étaient faciles à gérer, sont arrivés à l'heure et ont terminé rapidement. Aucune plainte. Je les réutiliserais sans hésiter et les recommande à tous." },
+        { name: "David Thomson", role: "Propriétaire", text: "Travail absolument phénoménal ! L'équipe était professionnelle, ponctuelle et la qualité a dépassé nos attentes. Notre maison a l'air toute neuve" }
       ]
     },
     contact: {
