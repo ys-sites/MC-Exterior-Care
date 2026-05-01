@@ -1,0 +1,35 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$');
+    }
+
+    function hasRequiredFields(fields) {
+      return request.resource.data.keys().hasAll(fields);
+    }
+
+    function hasOnlyAllowedFields(fields) {
+      return request.resource.data.keys().hasOnly(fields);
+    }
+
+    match /leads/{leadId} {
+      allow create: if hasRequiredFields(['fullName', 'email', 'phone', 'city', 'service', 'createdAt'])
+                    && hasOnlyAllowedFields(['fullName', 'email', 'phone', 'city', 'service', 'details', 'createdAt'])
+                    && request.resource.data['fullName'] is string && request.resource.data['fullName'].size() > 0 && request.resource.data['fullName'].size() <= 100
+                    && isValidEmail(request.resource.data['email'])
+                    && request.resource.data['phone'] is string && request.resource.data['phone'].size() > 0 && request.resource.data['phone'].size() <= 20
+                    && request.resource.data['city'] is string && request.resource.data['city'].size() > 0 && request.resource.data['city'].size() <= 100
+                    && request.resource.data['service'] is string && request.resource.data['service'].size() > 0 && request.resource.data['service'].size() <= 100
+                    && (request.resource.data['details'] is string && request.resource.data['details'].size() <= 2000 || !('details' in request.resource.data))
+                    && request.resource.data['createdAt'] is timestamp;
+      
+      allow read, update, delete: if false; 
+    }
+  }
+}
