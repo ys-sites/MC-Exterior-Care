@@ -404,51 +404,7 @@ function AppContent() {
   const [lang, setLang] = React.useState<'en' | 'fr'>('en');
   const t = translations[lang];
 
-  const [formData, setFormData] = React.useState({
-    fullName: '',
-    phone: '',
-    email: '',
-    city: '',
-    service: '',
-    details: ''
-  });
-  const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('loading');
-    
-    try {
-      // 1. Save to Firestore
-      try {
-        await addDoc(collection(db, 'leads'), {
-          ...formData,
-          createdAt: serverTimestamp(),
-        });
-      } catch (error) {
-        handleFirestoreError(error, OperationType.WRITE, 'leads');
-      }
-
-      // 2. Send to Webhook
-      await fetch('https://services.leadconnectorhq.com/hooks/o7aUwpKbtkP4AOP0pEjC/webhook-trigger/1afa2de0-a982-49c6-b56a-94afae15dd5e', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          source: 'Website Contact Form',
-          timestamp: new Date().toISOString(),
-        }),
-      });
-
-      setStatus('success');
-      setFormData({ fullName: '', phone: '', email: '', city: '', service: '', details: '' });
-    } catch (error) {
-      console.error('Submission error:', error);
-      setStatus('error');
-    }
-  };
 
   return (
     <main className="bg-white text-neutral-900 min-h-screen selection:bg-primary selection:text-white scroll-smooth">
@@ -516,9 +472,6 @@ function AppContent() {
               </button>
             </div>
             
-            <a href="#contact" className="hidden sm:flex bg-primary text-black px-6 py-2.5 rounded-full font-bold hover:bg-opacity-90 transition-all text-sm items-center gap-2 shadow-lg shadow-blue-400/20">
-              {t.nav.getQuote} <ArrowRight size={16} />
-            </a>
           </div>
         </nav>
       </motion.div>
@@ -579,10 +532,6 @@ function AppContent() {
               transition={{ delay: 0.3 }}
               className="flex flex-col items-start w-full mt-4"
             >
-              <a href="#contact" className="bg-primary text-black px-10 py-5 rounded-full font-bold text-lg hover:bg-opacity-90 transition-all flex items-center justify-center gap-3 shadow-xl shadow-blue-400/25 hover:shadow-blue-400/40 hover:-translate-y-1 group">
-                {t.hero.cta} <ArrowRight size={20} className="group-hover:translate-x-1 group-active:translate-x-1 transition-transform" />
-              </a>
-
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -654,11 +603,6 @@ function AppContent() {
                         </li>
                       ))}
                     </ul>
-                    <div className="mt-auto">
-                      <Link to={`/service/${service.slug}`} className="inline-flex items-center text-primary font-bold hover:text-opacity-80 transition-colors">
-                        See More <ArrowRight size={16} className="ml-2" />
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </SpotlightCard>
@@ -704,9 +648,6 @@ function AppContent() {
                     <p className="text-black/70 text-sm uppercase tracking-wider mb-1">{t.services.cta.startingAt}</p>
                     <p className="text-4xl sm:text-5xl font-bold text-black">{t.services.cta.price}</p>
                   </div>
-                  <a href="#contact" className="bg-primary text-black px-8 py-4 rounded-full font-bold text-sm hover:bg-opacity-90 transition-colors inline-block whitespace-nowrap shadow-lg shadow-blue-400/20">
-                    {t.services.cta.button}
-                  </a>
                 </div>
               </div>
             </BorderGlow>
@@ -853,9 +794,6 @@ function AppContent() {
             <p className="text-neutral-600 text-lg mb-8 leading-relaxed">
               {t.about.desc}
             </p>
-            <a href="#contact" className="inline-block bg-primary text-black px-8 py-4 rounded-full font-bold hover:bg-opacity-90 transition-colors shadow-lg shadow-blue-400/20">
-              {t.about.cta}
-            </a>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -871,156 +809,7 @@ function AppContent() {
         </div>
       </Section>
 
-      {/* Frictionless CTA Form */}
-      <Section id="contact" className="bg-neutral-50 border-y border-neutral-100 relative overflow-hidden group/main">
-        {/* Background Images with Fade */}
-        <div className="absolute inset-0 z-0 pointer-events-auto">
-          <div className="grid grid-cols-6 grid-rows-6 h-full">
-            {Array(36).fill(null).map((_, i) => {
-              const imgIndex = (i % 4) + 1;
-              const img = getAssetPath(`media/${imgIndex}.jpeg`);
-              return (
-                <div key={i} className="relative group/item">
-                  <img src={img} alt="" loading="lazy" className="w-full h-full object-cover opacity-5 group-hover/main:blur-sm group-hover/main:opacity-10 transition-all duration-500" />
-                  <img src={img} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover/item:opacity-100 group-hover/item:blur-0 transition-all duration-300" />
-                </div>
-              );
-            })}
-          </div>
-        </div>
 
-        <div className="max-w-3xl mx-auto relative z-10 px-4 py-8 pointer-events-none">
-          <div className="text-center mb-8 pointer-events-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-3 tracking-tight">
-              <ShinyText text={t.contact.title} color="#1B1B1B" shineColor="#3C91E6" speed={3} />
-            </h2>
-            <BlurText 
-              className="text-neutral-800 font-medium text-base md:text-lg justify-center drop-shadow-sm" 
-              text={t.contact.subtitle} 
-              delay={100} 
-              animateBy="words" 
-              direction="bottom" 
-            />
-          </div>
-          
-          <Card className="!p-6 md:!p-10 shadow-2xl shadow-neutral-900/10 border border-white/60 bg-white/95 backdrop-blur-md pointer-events-auto transition-transform duration-500 hover:shadow-neutral-900/20">
-            {status === 'success' ? (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="text-center py-12"
-              >
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle size={32} md-size={40} />
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold mb-2">{t.contact.form.success.title}</h3>
-                <p className="text-neutral-600 mb-8 text-sm md:text-base">{t.contact.form.success.desc}</p>
-                <button 
-                  onClick={() => setStatus('idle')}
-                  className="bg-primary text-black font-bold px-8 py-3 rounded-full hover:bg-opacity-90 transition-all shadow-lg shadow-blue-400/10"
-                >
-                  {t.contact.form.success.button}
-                </button>
-              </motion.div>
-            ) : (
-              <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
-                <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                  <div>
-                    <label className="block text-xs md:text-sm font-bold mb-1.5 md:mb-2 text-neutral-900">{t.contact.form.name} *</label>
-                    <input 
-                      type="text" 
-                      className="w-full px-3 md:px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white text-sm md:text-base" 
-                      placeholder="Jean Francois" 
-                      required 
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs md:text-sm font-bold mb-1.5 md:mb-2 text-neutral-900">{t.contact.form.phone} *</label>
-                    <input 
-                      type="tel" 
-                      className="w-full px-3 md:px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white text-sm md:text-base" 
-                      placeholder="(514) 622-1599" 
-                      required 
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    />
-                  </div>
-                </div>
-                
-                <div>
-                  <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-                    <div>
-                      <label className="block text-xs md:text-sm font-bold mb-1.5 md:mb-2 text-neutral-900">{t.contact.form.email} *</label>
-                      <input 
-                        type="email" 
-                        className="w-full px-3 md:px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white text-sm md:text-base" 
-                        placeholder="jean@example.com" 
-                        required 
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs md:text-sm font-bold mb-1.5 md:mb-2 text-neutral-900">{t.contact.form.city} *</label>
-                      <input 
-                        type="text" 
-                        className="w-full px-3 md:px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white text-sm md:text-base" 
-                        placeholder="Montreal" 
-                        required 
-                        value={formData.city}
-                        onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      />
-                    </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <label className="block text-xs md:text-sm font-bold mb-1.5 md:mb-2 text-neutral-900">{t.contact.form.serviceLabel} *</label>
-                  <select 
-                    className="w-full px-3 md:px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white appearance-none text-sm md:text-base" 
-                    required 
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  >
-                    <option value="" disabled>{t.contact.form.servicePlaceholder}</option>
-                    {t.contact.services.map((option, i) => (
-                      <option key={i}>{option}</option>
-                    ))}
-                  </select>
-                </div>
-                
-                <div>
-                  <label className="block text-xs md:text-sm font-bold mb-1.5 md:mb-2 text-neutral-900">{t.contact.form.details} (Optional)</label>
-                  <textarea 
-                    className="w-full px-3 md:px-4 py-3 rounded-xl border border-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white text-sm md:text-base" 
-                    rows={3} 
-                    placeholder={t.contact.form.detailsPlaceholder}
-                    value={formData.details}
-                    onChange={(e) => setFormData({ ...formData, details: e.target.value })}
-                  ></textarea>
-                </div>
-                
-                {status === 'error' && (
-                  <p className="text-red-500 text-xs md:text-sm font-medium">{t.contact.form.error}</p>
-                )}
-
-                <button 
-                  type="submit"
-                  disabled={status === 'loading'}
-                  className="w-full bg-primary text-black font-bold text-base md:text-lg py-4 md:py-5 rounded-xl hover:bg-opacity-90 transition-all mt-2 md:mt-4 flex justify-center items-center gap-2 shadow-lg shadow-blue-400/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {status === 'loading' ? t.contact.form.sending : t.contact.form.submit} <ArrowRight size={18} md-size={20} />
-                </button>
-                <p className="text-center text-[10px] md:text-xs text-neutral-500 mt-3 md:mt-4 flex items-center justify-center gap-1.5">
-                  <ShieldCheck size={12} md-size={14} /> {t.contact.form.secure}
-                </p>
-              </form>
-            )}
-          </Card>
-        </div>
-      </Section>
 
 
       {/* Footer */}
@@ -1083,33 +872,7 @@ function AppContent() {
         </div>
       </footer>
 
-      {/* Floating Call Button (Mobile Only) */}
-      <motion.a
-        href="tel:5142472086"
-        initial={{ opacity: 0, scale: 0.5, y: 20 }}
-        animate={{ opacity: 1, scale: 1, y: 0 }}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="md:hidden fixed bottom-4 right-4 z-50 w-14 h-14 bg-primary text-black rounded-full shadow-2xl flex items-center justify-center hover:bg-opacity-90 transition-colors group"
-        aria-label="Call MC ExteriorCare"
-      >
-        <Phone size={24} className="group-hover:animate-bounce group-active:animate-bounce" />
-      </motion.a>
 
-      {/* Book Free Call Button (Desktop/Tablet) */}
-      <motion.a
-        href="#contact"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="hidden md:flex fixed bottom-8 left-1/2 -translate-x-1/2 z-50 bg-primary text-black px-8 py-4 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.2)] items-center gap-3 font-bold hover:shadow-[0_15px_50px_rgba(0,0,0,0.3)] transition-all border border-primary"
-      >
-        <div className="w-8 h-8 rounded-lg bg-black/10 flex items-center justify-center">
-          <Calendar size={20} className="text-black" />
-        </div>
-        <span>{t.bookFreeCall}</span>
-      </motion.a>
     </main>
   );
 }
