@@ -524,7 +524,7 @@ function AppContent() {
       </motion.div>
 
       {/* Hero - Attention & Intent */}
-      <Section id="hero" className="pt-32 pb-0 relative min-h-[90vh] flex flex-col justify-between z-20 !px-0" innerClassName="mx-0 max-w-none">
+      <section id="hero" className="relative min-h-screen flex flex-col justify-between z-20 pt-32 pb-0">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.div 
             className="w-full h-full will-change-transform"
@@ -541,7 +541,12 @@ function AppContent() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
         </div>
         
-        <div className="relative z-10 w-full flex-1 flex flex-col items-start justify-center pt-20 pb-40 px-4 sm:px-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2, ease: "easeOut" }}
+          className="relative z-10 w-full flex-1 flex flex-col items-start justify-center pt-20 pb-40 px-4 sm:px-6 max-w-6xl mx-auto"
+        >
           <div className="max-w-3xl text-left">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -589,9 +594,8 @@ function AppContent() {
               </motion.div>
             </motion.div>
           </div>
-        </div>
-
-      </Section>
+        </motion.div>
+      </section>
 
       {/* Video Showcase */}
       <VideoShowcase t={t} />
