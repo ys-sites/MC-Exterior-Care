@@ -126,6 +126,8 @@ export default function ServicePage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="will-change-transform"
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral-900 tracking-tight">
                 <ShinyText text={detailed.whatWeDoTitle} color="#1B1B1B" shineColor="#3C91E6" speed={3} />
@@ -157,7 +159,8 @@ export default function ServicePage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
+              className="will-change-transform"
             >
               <div className="sticky top-28 bg-primary text-black rounded-3xl p-10 shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-black/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none" />
@@ -197,8 +200,8 @@ export default function ServicePage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="text-center relative bg-white px-6 py-8 rounded-3xl shadow-sm border border-neutral-100 hover:shadow-md transition-all h-full"
+              transition={{ delay: idx * 0.1, duration: 0.4 }}
+              className="text-center relative bg-white px-6 py-8 rounded-3xl shadow-sm border border-neutral-100 hover:shadow-md transition-all h-full will-change-transform"
             >
               <div className="w-16 h-16 mx-auto bg-primary/5 rounded-2xl flex items-center justify-center mb-5 text-primary border border-primary/10 shadow-inner">
                 <span className="text-2xl font-black">0{idx + 1}</span>
@@ -225,8 +228,8 @@ export default function ServicePage() {
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="border border-neutral-200 rounded-2xl overflow-hidden"
+                transition={{ delay: idx * 0.1, duration: 0.3 }}
+                className="border border-neutral-200 rounded-2xl overflow-hidden will-change-transform"
               >
                 <button
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}

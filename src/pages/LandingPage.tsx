@@ -125,11 +125,11 @@ function handleFirestoreError(error: unknown, operationType: OperationType, path
 const Section = ({ children, className = "", innerClassName = "", id, delay = 0 }: { children: React.ReactNode; className?: string; innerClassName?: string; id?: string; delay?: number }) => (
   <section id={id} className={`py-20 px-6 ${className}`}>
     <motion.div 
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, delay, ease: [0.21, 0.47, 0.32, 0.98] }}
-      className={`max-w-6xl mx-auto ${innerClassName}`}
+      transition={{ duration: 0.4, delay, ease: "easeOut" }}
+      className={`max-w-6xl mx-auto will-change-transform ${innerClassName}`}
     >
       {children}
     </motion.div>
@@ -139,13 +139,13 @@ const Section = ({ children, className = "", innerClassName = "", id, delay = 0 
 
 const Card = ({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number; key?: React.Key }) => (
   <motion.div 
-    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+    initial={{ opacity: 0, y: 20, scale: 0.98 }}
     whileInView={{ opacity: 1, y: 0, scale: 1 }}
     viewport={{ once: true, margin: "-50px" }}
-    transition={{ duration: 0.5, delay }}
-    whileHover={{ y: -10, boxShadow: "0px 15px 30px rgba(0,0,0,0.08)" }}
-    whileTap={{ y: -10, boxShadow: "0px 15px 30px rgba(0,0,0,0.08)" }}
-    className={`p-8 bg-white border border-neutral-200 shadow-sm rounded-2xl transition-all ${className}`}
+    transition={{ duration: 0.3, delay }}
+    whileHover={{ y: -5, boxShadow: "0px 10px 25px rgba(0,0,0,0.05)" }}
+    whileTap={{ y: -5, boxShadow: "0px 10px 25px rgba(0,0,0,0.05)" }}
+    className={`p-8 bg-white border border-neutral-200 shadow-sm rounded-2xl transition-all will-change-transform ${className}`}
   >
     {children}
   </motion.div>
@@ -454,10 +454,10 @@ function AppContent() {
     <main className="bg-white text-neutral-900 min-h-screen selection:bg-primary selection:text-white scroll-smooth">
       {/* Navbar */}
       <motion.div 
-        initial={{ opacity: 0, y: -20 }}
+        initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="absolute top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-5xl z-50"
+        transition={{ duration: 0.4, delay: 0.1 }}
+        className="absolute top-6 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-5xl z-50 will-change-transform"
       >
         <nav className="bg-white border border-neutral-200/50 rounded-full px-3 py-2 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
           <div className="flex items-center gap-6">
@@ -527,15 +527,14 @@ function AppContent() {
       <Section id="hero" className="pt-32 pb-0 relative min-h-[90vh] flex flex-col justify-between z-20 !px-0" innerClassName="mx-0 max-w-none">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <motion.div 
-            className="w-full h-full"
-            initial={{ scale: 1.1 }}
+            className="w-full h-full will-change-transform"
+            initial={{ scale: 1.05 }}
             animate={{ scale: 1 }}
-            transition={{ duration: 10, ease: "easeOut" }}
+            transition={{ duration: 8, ease: "easeOut" }}
             style={{
               backgroundImage: `url('${getAssetPath("media/hero.png")}')`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              filter: "brightness(0.85) contrast(1.1) saturate(1.1)",
             }}
           />
           <div className="absolute inset-0 bg-black/30"></div>
