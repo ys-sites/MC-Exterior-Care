@@ -5,7 +5,7 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { ArrowRight, CheckCircle, Star, Phone, Mail, MapPin, ChevronDown, Clock, ShieldCheck, Sparkles, Quote, ChevronLeft, ChevronRight, Globe, Calendar, X } from "lucide-react";
+import { ArrowRight, CheckCircle, Star, Phone, Mail, MapPin, ChevronDown, Clock, ShieldCheck, Sparkles, Quote, ChevronLeft, ChevronRight, Globe, Calendar } from "lucide-react";
 import { translations } from "../translations";
 import { useInView } from "motion/react";
 import { Link } from "react-router-dom";
@@ -403,7 +403,6 @@ export default function LandingPage() {
 function AppContent() {
   const [lang, setLang] = React.useState<'en' | 'fr'>('en');
   const t = translations[lang];
-  const [selectedImage, setSelectedImage] = React.useState<string | null>(null);
 
   const [formData, setFormData] = React.useState({
     fullName: '',
@@ -828,19 +827,6 @@ function AppContent() {
                       </div>
                     </div>
                     <p className="text-neutral-700 leading-relaxed text-[15px] flex-1">"{testimonial.text}"</p>
-                    {testimonial.images && testimonial.images.length > 0 && (
-                      <div className="mt-4 flex gap-2 overflow-x-auto self-start pb-2" style={{ scrollbarWidth: 'none' }}>
-                        {testimonial.images.map((img: string, imgIdx: number) => (
-                          <div 
-                            key={imgIdx} 
-                            className="flex-shrink-0 cursor-pointer rounded-xl overflow-hidden shadow-sm hover:opacity-90 transition-opacity border border-neutral-200"
-                            onClick={() => setSelectedImage(img)}
-                          >
-                            <img src={img} alt={`Review attachment ${imgIdx + 1}`} className="w-auto h-32 md:h-40 object-cover" />
-                          </div>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 </Card>
               </div>
@@ -1121,42 +1107,6 @@ function AppContent() {
         </div>
         <span>{t.bookFreeCall}</span>
       </motion.a>
-
-      {/* Image Modal for Testimonials */}
-      <AnimatePresence>
-        {selectedImage && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-            onClick={() => setSelectedImage(null)}
-          >
-            <motion.div 
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="relative max-w-4xl max-h-[90vh] w-full rounded-2xl overflow-hidden shadow-2xl bg-black"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button 
-                onClick={() => setSelectedImage(null)}
-                className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/80 text-white rounded-full p-2 transition-colors cursor-pointer"
-                aria-label="Close"
-              >
-                <X size={24} />
-              </button>
-              <div className="w-full h-full flex items-center justify-center">
-                <img 
-                  src={selectedImage} 
-                  alt="Expanded view" 
-                  className="max-w-full max-h-[90vh] object-contain"
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </main>
   );
 }

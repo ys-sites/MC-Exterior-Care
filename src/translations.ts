@@ -125,7 +125,6 @@ export const translations = {
           reviewsCount: "1 review · 1 photo", 
           text: "Had my driveway restored by MC Exterior Care and wow, what a difference.  I didn't think it could turn out this good — thing looks brand new. The guys were super professional, on time, and got it done fast. No complaints at all. Would definitely use them again. Thanks!", 
           stars: 5,
-          images: ["/media/1.jpeg"],
           initials: "R",
           bg: "#8E735B"
         },
@@ -142,7 +141,6 @@ export const translations = {
           reviewsCount: "2 reviews · 2 photos", 
           text: "Great work ! Our siding looks 10 years younger, the team really showed close attention to detail, even on a rainy day, took the time to remove the toughest of stains. We are impressed with the results and highly recommend them!", 
           stars: 5,
-          images: ["/media/4.jpeg", "/media/2.jpeg"],
           initials: "z",
           bg: "#8E24AA"
         },
@@ -151,7 +149,6 @@ export const translations = {
           reviewsCount: "5 reviews · 1 photo", 
           text: "Excellent service from start to finish! The team was friendly, professional, and did an amazing job cleaning the gutters and installing the gutter guards. Everything looks great, they left the area spotless, and I'm so happy with the results. Highly recommend!", 
           stars: 5,
-          images: ["/media/3.jpeg"],
           initials: "N",
           bg: "#0B8043"
         },
@@ -160,7 +157,6 @@ export const translations = {
           reviewsCount: "7 reviews · 5 photos", 
           text: "great work was fast and efficient and did a great job, highly recommend, and excited to get them back next year!", 
           stars: 5,
-          images: ["/media/whatsapp_review.jpeg"],
           initials: "K",
           bg: "#5E35B1"
         }
@@ -537,7 +533,6 @@ export const translations = {
           reviewsCount: "1 avis · 1 photo", 
           text: "Mon allée a été restaurée par MC Exterior Care et waouh, quelle différence. Je ne pensais pas que ça pourrait être aussi beau — on dirait que c'est neuf. Les gars étaient super professionnels, ponctuels et ont fait ça vite. Aucune plainte du tout. Je les réutiliserai certainement. Merci !", 
           stars: 5,
-          images: ["/media/1.jpeg"],
           initials: "R",
           bg: "#8E735B"
         },
@@ -554,7 +549,6 @@ export const translations = {
           reviewsCount: "2 avis · 2 photos", 
           text: "Excellent travail ! Notre revêtement semble avoir rajeuni de 10 ans, l'équipe a vraiment fait preuve d'une grande attention aux détails, même un jour de pluie, et a pris le temps d'enlever les taches les plus tenaces. Nous sommes impressionnés par les résultats et nous les recommandons vivement !", 
           stars: 5,
-          images: ["/media/4.jpeg", "/media/2.jpeg"],
           initials: "z",
           bg: "#8E24AA"
         },
@@ -563,7 +557,6 @@ export const translations = {
           reviewsCount: "5 avis · 1 photo", 
           text: "Excellent service du début à la fin ! L'équipe était sympathique, professionnelle et a fait un travail incroyable en nettoyant les gouttières et en installant les protège-gouttières. Tout est superbe, ils ont laissé l'endroit impeccable et je suis très heureuse des résultats. Je le recommande vivement !", 
           stars: 5,
-          images: ["/media/3.jpeg"],
           initials: "N",
           bg: "#0B8043"
         },
@@ -572,7 +565,6 @@ export const translations = {
           reviewsCount: "7 avis · 5 photos", 
           text: "excellent travail, rapide et efficace. J'ai beaucoup apprécié. Je recommande vivement et je suis impatient de les revoir l'année prochaine !", 
           stars: 5,
-          images: ["/media/whatsapp_review.jpeg"],
           initials: "K",
           bg: "#5E35B1"
         }
