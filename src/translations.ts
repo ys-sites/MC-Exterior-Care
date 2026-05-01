@@ -14,7 +14,7 @@ export const translations = {
       subtitle: "Discover our completed projects and exterior transformations."
     },
     hero: {
-      badge: "MC Exterior Care, experts in exterior care in Montreal",
+      badge: "MC ExteriorCare, experts in exterior care in Montreal",
       title: "Professional Exterior Cleaning & Services",
       subtitle: "Serving homeowners across Montreal West Island and surrounding areas with premium exterior care you can trust. Upgrade your home with skilled maintenance professionals you can trust. Whether it's a small improvement or a full home transformation, our team delivers quality workmanship and beautiful results.",
       cta: "Get A Free Quote Now",
@@ -123,8 +123,7 @@ export const translations = {
         { 
           name: "Richard D", 
           reviewsCount: "1 review · 1 photo", 
-          text: "Had my driveway restored by MC Exterior Care and wow, what a difference.  I didn't think it could turn out this good — thing looks brand new. The guys were super professional, on time, and got it done fast. No complaints at all. Would definitely use them again. Thanks!", 
-          stars: 5,
+          text: "Had my driveway restored by MC ExteriorCare and wow, what a difference.  I didn't think it could turn out this good — thing looks brand new. The guys were super professional, on time, and got it done fast. No complaints at all. Would definitely use them again. Thanks!",           stars: 5,
           initials: "R",
           bg: "#8E735B"
         },
@@ -211,7 +210,7 @@ export const translations = {
       desc: "Professional exterior cleaning and maintenance services for residential properties. Quality workmanship, reliable service, and stunning results in Montreal.",
       links: "Quick Links",
       contact: "Contact",
-      rights: "© 2026 MC Exterior Care. All rights reserved.",
+      rights: "© 2026 MC ExteriorCare. All rights reserved.",
       location: "Montreal, Quebec",
       email: "Mcextcare@gmail.com"
     },
@@ -422,7 +421,7 @@ export const translations = {
       subtitle: "Découvrez l'excellence de notre savoir-faire à travers nos réalisations."
     },
     hero: {
-      badge: "MC Exterior Care, experts en entretien extérieur à Montréal",
+      badge: "MC ExteriorCare, experts en entretien extérieur à Montréal",
       title: "Services Professionnels de Nettoyage Extérieur",
       subtitle: "Servant les propriétaires de l'Ouest-de-l'Île de Montréal et des environs avec des soins extérieurs de qualité supérieure en lesquels vous pouvez avoir confiance. Améliorez votre maison avec des professionnels de la rénovation qualifiés. Qu'il s'agisse d'une petite amélioration ou d'une transformation complète, notre équipe offre un travail de qualité et des résultats magnifiques.",
       cta: "Obtenez un devis gratuit maintenant",
@@ -531,8 +530,7 @@ export const translations = {
         { 
           name: "Richard D", 
           reviewsCount: "1 avis · 1 photo", 
-          text: "Mon allée a été restaurée par MC Exterior Care et waouh, quelle différence. Je ne pensais pas que ça pourrait être aussi beau — on dirait que c'est neuf. Les gars étaient super professionnels, ponctuels et ont fait ça vite. Aucune plainte du tout. Je les réutiliserai certainement. Merci !", 
-          stars: 5,
+          text: "Mon allée a été restaurée par MC ExteriorCare et waouh, quelle différence. Je ne pensais pas que ça pourrait être aussi beau — on dirait que c'est neuf. Les gars étaient super professionnels, ponctuels et ont fait ça vite. Aucune plainte du tout. Je les réutiliserai certainement. Merci !",           stars: 5,
           initials: "R",
           bg: "#8E735B"
         },
@@ -619,7 +617,7 @@ export const translations = {
       desc: "Services professionnels de nettoyage et d'entretien extérieur pour propriétés résidentielles. Travail de qualité, service fiable et résultats époustouflants à Montréal.",
       links: "Liens rapides",
       contact: "Contact",
-      rights: "© 2026 MC Exterior Care. Tous droits réservés.",
+      rights: "© 2026 MC ExteriorCare. Tous droits réservés.",
       location: "Montréal, Québec",
       email: "Mcextcare@gmail.com"
     },

@@ -62,8 +62,8 @@ export default function ServicePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <Link to="/" className="pl-3 flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src={getAssetPath("MC.svg")} alt="MC Exterior Care" className="w-14 h-14 object-contain" />
-              <span className="text-lg font-bold tracking-tight text-neutral-900 whitespace-nowrap">MC Exterior Care</span>
+              <img src={getAssetPath("MC.svg")} alt="MC ExteriorCare" className="w-14 h-14 object-contain" />
+              <span className="text-lg font-bold tracking-tight text-neutral-900 whitespace-nowrap">MC ExteriorCare</span>
             </Link>
             <div className="hidden md:flex items-center space-x-6">
               <Link to="/" className="text-neutral-600 hover:text-primary font-medium transition-colors">

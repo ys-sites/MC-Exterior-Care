@@ -462,8 +462,8 @@ function AppContent() {
         <nav className="bg-white border border-neutral-200/50 rounded-full px-3 py-2 flex items-center justify-between shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
           <div className="flex items-center gap-6">
             <a href="#" className="pl-3 flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src={getAssetPath("MC.svg")} alt="MC Exterior Care" className="w-14 h-14 object-contain" />
-              <span className="text-lg font-bold tracking-tight text-neutral-900 whitespace-nowrap">MC Exterior Care</span>
+              <img src={getAssetPath("MC.svg")} alt="MC ExteriorCare" className="w-14 h-14 object-contain" />
+              <span className="text-lg font-bold tracking-tight text-neutral-900 whitespace-nowrap">MC ExteriorCare</span>
             </a>
             
             <div className="hidden lg:flex items-center bg-neutral-100/50 rounded-full p-1 gap-1">
@@ -1031,9 +1031,9 @@ function AppContent() {
         >
           <div className="flex flex-col items-start gap-4 shrink-0 md:w-1/3">
             <div className="text-white flex items-center gap-4">
-              <img src={getAssetPath("MC.svg")} alt="MC Exterior Care" className="w-14 h-14 object-contain" />
+              <img src={getAssetPath("MC.svg")} alt="MC ExteriorCare" className="w-14 h-14 object-contain" />
               <div className="flex flex-col gap-2">
-                <span className="text-2xl font-bold tracking-tight">MC Exterior Care</span>
+                <span className="text-2xl font-bold tracking-tight">MC ExteriorCare</span>
                 <a
                   href="https://www.instagram.com/mcexteriorcare?igsh=Ymd0ZDF6MTdodWo0"
                   target="_blank"
@@ -1088,7 +1088,7 @@ function AppContent() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         className="md:hidden fixed bottom-4 right-4 z-50 w-14 h-14 bg-primary text-black rounded-full shadow-2xl flex items-center justify-center hover:bg-opacity-90 transition-colors group"
-        aria-label="Call MC Exterior Care"
+        aria-label="Call MC ExteriorCare"
       >
         <Phone size={24} className="group-hover:animate-bounce group-active:animate-bounce" />
       </motion.a>
