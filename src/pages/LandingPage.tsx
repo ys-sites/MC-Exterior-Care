@@ -175,13 +175,13 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
         </div>
         
-        <div className="relative z-10 w-full flex-1 flex flex-col items-start justify-center pt-20 pb-40 px-4 sm:px-6">
-          <div className="max-w-3xl text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white font-medium text-xs sm:text-sm mb-6 backdrop-blur-md border border-white/20 -ml-4 sm:-ml-6">
+        <div className="relative z-10 w-full flex-1 flex flex-col items-center justify-center pt-20 pb-40 px-4 sm:px-6">
+          <div className="max-w-3xl text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 text-white font-medium text-xs sm:text-sm mb-6 backdrop-blur-md border border-white/20">
               <Star size={14} className="fill-white text-white" /> {t.hero.badge}
             </div>
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 text-white drop-shadow-2xl leading-[1.1]">{t.hero.title}</h1>
-            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-10 max-w-2xl font-medium drop-shadow-lg leading-relaxed">{t.hero.subtitle}</p>
+            <p className="text-base sm:text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-medium drop-shadow-lg leading-relaxed">{t.hero.subtitle}</p>
             <div className="mt-6 inline-flex items-center gap-2 px-5 py-2 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white/90 text-xs sm:text-sm font-medium">
               <Clock size={14} className="text-white/60" />
               <span>{t.hero.consultation}</span>
