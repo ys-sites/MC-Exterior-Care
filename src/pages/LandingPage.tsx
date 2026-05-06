@@ -269,22 +269,29 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-4 text-center tracking-tight">{t.testimonials.title}</h2>
           <p className="text-neutral-600 text-center mb-12 max-w-2xl mx-auto">{t.testimonials.subtitle}</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {t.testimonials.items.map((testimonial: any, i: number) => (
-              <div key={i} className="p-6 md:p-8 bg-neutral-50 border border-neutral-200 rounded-2xl">
-                <div className="flex items-center gap-4 mb-5">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-white font-medium text-xl shadow-sm" style={{ backgroundColor: testimonial.bg || '#9CA3AF' }}>{testimonial.initials || testimonial.name.charAt(0)}</div>
-                  <div className="flex-1">
-                    <p className="font-bold text-neutral-900 leading-tight">{testimonial.name}</p>
-                    <p className="text-sm text-neutral-500 leading-tight mt-0.5">{testimonial.reviewsCount || testimonial.role}</p>
+          <div className="relative overflow-hidden">
+            <motion.div
+              animate={{ x: [0, -320 * t.testimonials.items.length] }}
+              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              className="flex gap-6"
+              style={{ width: `${320 * t.testimonials.items.length * 2}px` }}
+            >
+              {[...t.testimonials.items, ...t.testimonials.items].map((testimonial: any, i: number) => (
+                <div key={i} className="flex-shrink-0 w-80 p-6 md:p-8 bg-neutral-50 border border-neutral-200 rounded-2xl">
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-white font-medium text-xl shadow-sm" style={{ backgroundColor: testimonial.bg || '#9CA3AF' }}>{testimonial.initials || testimonial.name.charAt(0)}</div>
+                    <div className="flex-1">
+                      <p className="font-bold text-neutral-900 leading-tight">{testimonial.name}</p>
+                      <p className="text-sm text-neutral-500 leading-tight mt-0.5">{testimonial.reviewsCount || testimonial.role}</p>
+                    </div>
+                  </div>
+                  <div className="flex-1 flex flex-col">
+                    <div className="flex items-center gap-2 mb-3"><div className="flex gap-0.5">{[...Array(testimonial.stars || 5)].map((_, j) => <Star key={j} size={16} className="fill-yellow-400 text-yellow-400" />)}</div></div>
+                    <p className="text-neutral-700 leading-relaxed text-[15px]">"{testimonial.text}"</p>
                   </div>
                 </div>
-                <div className="flex-1 flex flex-col">
-                  <div className="flex items-center gap-2 mb-3"><div className="flex gap-0.5">{[...Array(testimonial.stars || 5)].map((_, j) => <Star key={j} size={16} className="fill-yellow-400 text-yellow-400" />)}</div></div>
-                  <p className="text-neutral-700 leading-relaxed text-[15px]">"{testimonial.text}"</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
