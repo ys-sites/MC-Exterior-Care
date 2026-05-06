@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "motion/react";
 import { ArrowRight, Star, Phone, Mail, MapPin, Clock, ShieldCheck, Sparkles } from "lucide-react";
 import { translations } from "../translations";
 import { Link } from "react-router-dom";
@@ -40,10 +41,16 @@ const VideoShowcase = ({ t }: { t: any }) => {
   return (
     <section className="bg-neutral-950 py-20 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
           <h2 className="text-5xl font-bold text-white mb-4 tracking-tight">{t.transformation.title}</h2>
           <p className="text-neutral-400 max-w-2xl mx-auto text-lg">{t.transformation.subtitle}</p>
-        </div>
+        </motion.div>
 
         <div className="md:hidden relative">
           <div className="rounded-3xl overflow-hidden shadow-2xl bg-neutral-900 aspect-[9/16] max-h-[65vh] relative border border-white/10">
