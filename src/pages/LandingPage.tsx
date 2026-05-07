@@ -201,13 +201,12 @@ export default function LandingPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {[
-              { key: 'exterior', slug: 'gutter-cleaning', image: getAssetPath('media/1.jpeg'), icon: <Sparkles size={40} className="text-primary mb-4 w-10 h-10 sm:w-12 sm:h-12" /> },
-              { key: 'interior', slug: 'pressure-washing', image: getAssetPath('media/2.jpeg'), icon: <ShieldCheck size={40} className="text-primary mb-4 w-10 h-10 sm:w-12 sm:h-12" /> },
-              { key: 'dye', slug: 'pavement-restoration', image: getAssetPath('media/3.jpeg'), icon: <Star size={40} className="text-primary mb-4 w-10 h-10 sm:w-12 sm:h-12" /> },
-              { key: 'winter', slug: 'winter-services', image: getAssetPath('media/4.jpeg'), icon: <Clock size={40} className="text-primary mb-4 w-10 h-10 sm:w-12 sm:h-12" /> }
+              { key: 'exterior', slug: 'gutter-cleaning', icon: <Sparkles size={40} className="text-primary mb-4 w-10 h-10 sm:w-12 sm:h-12" /> },
+              { key: 'interior', slug: 'pressure-washing', icon: <ShieldCheck size={40} className="text-primary mb-4 w-10 h-10 sm:w-12 sm:h-12" /> },
+              { key: 'dye', slug: 'pavement-restoration', icon: <Star size={40} className="text-primary mb-4 w-10 h-10 sm:w-12 sm:h-12" /> },
+              { key: 'winter', slug: 'winter-services', icon: <Clock size={40} className="text-primary mb-4 w-10 h-10 sm:w-12 sm:h-12" /> }
             ].map((service) => (
               <div key={service.key} className="h-full relative block rounded-3xl bg-white shadow-sm border border-neutral-100 p-6 sm:p-8 flex flex-col">
-                <div className="w-full h-48 sm:h-56 rounded-2xl overflow-hidden mb-6"><img src={service.image} alt={service.slug} className="w-full h-full object-cover" /></div>
                 {service.icon}
                 <h3 className="text-xl sm:text-2xl font-bold mb-3 text-neutral-900">{(t.services[service.key as keyof typeof t.services] as any).title}</h3>
                 <p className="text-neutral-600 text-sm sm:text-base mb-6">{(t.services[service.key as keyof typeof t.services] as any).desc}</p>
